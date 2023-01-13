@@ -11,6 +11,7 @@ namespace DiceDemo.System
         [SerializeField] private Environment _scenery;
         [SerializeField] private DiceHandler _gameplay;
 
+        private MockGameData _gameData;
         private AudioPlayer _audioPlayer;
 
         private bool _isWaitingDiceResult = false;
@@ -22,12 +23,11 @@ namespace DiceDemo.System
 
         private void SetupScene()
         {
-            ThemeType initialThemeType = new();
-
+            _gameData = new MockGameData();
+            ThemeType initialThemeType = _gameData.LoadThemeType();
             _scenery.SetTheme(initialThemeType);
             _gameplay.Init(ProcessDiceResult);
             _userInterface.Init(ProcessThemeChangeCommand, ProcessThrowDiceCommand, initialThemeType);
-
             _audioPlayer = GetComponent<AudioPlayer>();
         }
 
@@ -35,6 +35,7 @@ namespace DiceDemo.System
         {
             if (_scenery.IsSetNewTheme(themeType))
             {
+                _gameData.SaveThemeType(themeType);
                 _userInterface.ReactToThemeChange(themeType);
             }
 
@@ -56,6 +57,7 @@ namespace DiceDemo.System
 
         private void ProcessDiceResult(int[] diceResult)
         {
+            _gameData.AddDiceResult(diceResult);
             _userInterface.ReactToDiceResult(diceResult);
             _isWaitingDiceResult = false;
         }
