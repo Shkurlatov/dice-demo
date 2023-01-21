@@ -7,9 +7,9 @@ namespace DiceDemo.System
 {
     public class GameProcessor : MonoBehaviour
     {
-        [SerializeField] private UIHandler _userInterface;
         [SerializeField] private Environment _scenery;
         [SerializeField] private DiceHandler _gameplay;
+        [SerializeField] private UIHandler _userInterface;
 
         private MockGameData _gameData;
         private AudioPlayer _audioPlayer;
