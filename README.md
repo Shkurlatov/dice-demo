@@ -60,7 +60,7 @@ Since the main mechanics of this project is the dice roll simulation, let's dwel
 
 There is DiceSpawner gameobject in the Gameplay layer of the scene. The DiceFactory class is attached to it, in which the DiceSet field is serialized.
 
-<img src="docs/images/dice_spawner.png" alt="drawing" width="428"/>
+<img src="docs/images/dice_spawner.png" alt="drawing" width="420"/>
 
 Here you can change the number of dice in the set and fill it with prefabs in the desired order. There must be at least one die in the set, otherwise the application will throw the corresponding exception at the launch.
 
@@ -70,7 +70,7 @@ In the world of board games, there are not only classic dice. Players use bizarr
 
 On the example of it prefab, you can see the differences in object settings compared to the original die prefab. Please note that the number of die sides added to the Die class in the inspector must match the number of corresponding values.
 
-<img src="docs/images/die_prefab.png" alt="drawing" width="428"/>
+<img src="docs/images/die_prefab.png" alt="drawing" width="420"/>
 
 Some dice shapes may require you to create your own physical material, such as with different friction settings. Also, for the desired behavior of the object during the simulation, you can separately adjust the parameters of the ridgidbody, such as mass and drag. If these tools are not enough, you can influence the throw parameters quite strongly by changing the constant fields of the ImpulseGenerator class.
 
