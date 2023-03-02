@@ -21,7 +21,7 @@ almost any skill level to understand and analyze.
 
 The entry point to the program is the Start() method of the 
 GameProcessor class. This class is a kind of Mediator, which coordinates 
-all the processes of the program, passing them through itself. Only instead 
+all the processes of the program, passing them through itself. Only, instead 
 of injecting itself as a dependency, it injects its specific methods. Thus, 
 each separate layer of the application can only call the method strictly 
 assigned to it in the GameProcessor class.
@@ -31,6 +31,14 @@ assigned to it in the GameProcessor class.
 All application layers referenced by the GameProcessor class are 
 independent, do not know about other layers, and are pre-configured using 
 the Awake() methods of the corresponding objects, if necessary.
+<br/><br/>
+
+# Zenject framework
+
+If you prefer to explore this project implemented with third-party DI framework, here 
+is a corresponding [__Dice demo + Zenject__](https://github.com/Shkurlatov/dice-demo-zenject) 
+repository. The project structures are very similar, however object coupling 
+is implemented using Zenject framework.
 <br/><br/>
 
 # Universal RP
@@ -45,7 +53,7 @@ materials and lighting.
 
 # Usage
 
-* Clone the repo as usual via cmd/terminal or in your favourite Git GUI 
+* Clone the repo as usual via cmd/terminal or in your favorite Git GUI 
 software.
 * Open the project folder in Unity Hub using 2021.3.14f1 or a more recent 
 of 2021.3 editor versions.     
@@ -64,7 +72,7 @@ There is DiceSpawner gameobject in the Gameplay layer of the scene. The DiceFact
 
 Here you can change the number of dice in the set and fill it with prefabs in the desired order. There must be at least one die in the set, otherwise the application will throw the corresponding exception at the launch.
 
-In the world of board games, there are not only classic dice. Players use bizarre shaped dice with different numbers of faces and specific values. The project allows you to add new types of dice without changing a single line of code. After importing a custom die model and a collider to it into the project, it is enough to create the corresponding prefab and you can use it in the DiceSet. To make it a little easier to understand the process of creating a custom die prefab, an additional eight-sided die has been added to the project.
+In the world of board games, there are not only classic dice. Players use bizarre shaped dice with different numbers of faces and specific values. The project allows you to add new types of dice without changing a single line of code. After importing a custom die model and a collider to it into the project, it is enough to create the corresponding prefab, and you can use it in the DiceSet. To make it a little easier to understand the process of creating a custom die prefab, an additional eight-sided die has been added to the project.
 
 <img src="docs/images/dice_set.png" alt="drawing" width="256"/>
 
